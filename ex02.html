@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자</title>
+    <style>
+        .sec01::before{
+            content: '안녕하세요';
+            display: block;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>직접선택자</h1>
+    <section class="sec sec01" id="food01">
+        <h2>짜장면</h2>
+        <ul>
+            <li>짜장면</li>
+            <li>삼선짜장면</li>
+            <li>간짜장면</li>
+            <li>유니짜장면</li>
+        </ul>
+    </section>
+    <section class="sec sec02" id="food02">
+        <h2>짬뽕</h2>
+        <ul>
+            <li>짬뽕</li>
+            <li>삼선짬뽕</li>
+            <li>볶음짬뽕</li>
+            <li>나가사키짬뽕</li>
+        </ul>
+    </section>
+
+    <!-- jQuery -->
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('h1').css({
+                textAlign:'center',
+            });
+            $('.sec').css({
+                color:'red',
+            })
+            $('li:first-child').css({
+                color:'blue',
+            })
+            $('li:nth-child(2n)').css({
+                color:'cyan',
+            })
+        })
+    </script>
+</body>
+</html>

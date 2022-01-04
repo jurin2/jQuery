@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>탐색선택자</title>
+</head>
+<body>
+    <h1>탐색선택자</h1>
+    <ul>
+        <li>목록1(0)</li>
+        <li>목록2(1)</li>
+        <li>목록3(2)</li>
+        <li>목록4(3)</li>
+        <li>목록5(4)</li>
+        <li>목록6(5)</li>
+        <li>목록7(6)</li>
+        <li>목록8(7)</li>
+        <li>목록9(8)</li>
+        <li>목록10(9)</li>
+    </ul>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('li').first().text('list1(0)');
+            $('li').last().text('list10(9)');
+            // 짝수
+            $('li:odd').css({
+                color:'red',
+            })
+            // 홀수
+            $('li:even').css({
+                color:'green',
+            })
+            $('li').eq(4).css({
+                fontSize:'100px',
+            }).text('list5(4)')
+            
+            $('li:gt(7)').css({
+                color:'black',
+            })
+            $('li:lt(4)').css({
+                color:'black',
+            })
+
+            $('li').slice(1,6).css({
+                backgroundColor:'blue',
+            })
+        })
+    </script>
+</body>
+</html>

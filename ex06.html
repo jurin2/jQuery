@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index(),hidden,visible,text,selected,checked</title>
+</head>
+<body>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li id="item"></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+
+    <form action="#">
+        <input type="text" placeholder="text박스" visible>
+        <br>
+        <label>저장<input type="checkbox"></label>
+        <br>
+        <select>
+            <option value="1">옵션1</option>
+            <option value="2" selected>옵션2</option>
+            <option value="3">옵션3</option>
+        </select>
+    </form>
+
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            console.log($('li').index($('#item')));
+
+            $('input[type="checkbox"]').click(function(){
+                $('input[type="checkbox"]:checked').css({
+                    width:'100px',
+                    height:'100px',
+                })
+            })
+            $('select').change(function(){
+                $('select:selected').css({
+                    fontSize:'40px'
+                })
+            })
+        })
+    </script>
+</body>
+</html>

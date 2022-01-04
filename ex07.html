@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내용선택자</title>
+</head>
+<body>
+    <li id="box01">box1</li>
+    <li><a>박스2</a></li>
+    <li class="list"><span>리스트3</span></li>
+    <li class="list">content4</li>
+    <li>list5</li>
+    <li>콘텐츠6</li>
+
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('li:contains("box1")').css({
+                color:'red',
+            })
+            $('li').has('a').css({
+                color:'green',
+            })
+            $('li').filter('.list').css({
+                color:'blue',
+            })
+
+            $('body').find('.list').css({
+                color:'red',
+            })
+            $('li').filter('#box01').css({
+                color:'blue',
+            })
+            $('li:not(:last)').css({
+                border:'2px solid #000'
+            })
+        })
+    </script>
+</body>
+</html>

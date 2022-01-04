@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>each()</title>
+</head>
+<body>
+    <li>box</li>
+    <li>box</li>
+    <li>box</li>
+    <li>box</li>
+    <li>box</li>
+    <li>box</li>
+    <li>box</li>
+    <li>box</li>
+    <li>box</li>
+    <li>box</li>
+
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            let list = $('li');
+            let text = '';
+            // for(let idx=0; idx<$('li').length; idx++){
+            //     text = $('li').eq(idx).text();
+            //     list.eq(idx).text(text+idx);
+            // }
+            list.each(function(i,o){
+                text = o.innerHTML;
+                o.innerHTML = text + i;
+            })
+        })
+    </script>
+</body>
+</html>
