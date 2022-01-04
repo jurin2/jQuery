@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        // $(function(){
+        //     console.log($('input').attr('value'));
+        //     $('input').attr('value','name');
+        //     $('input').attr({
+        //         'type':'password',
+        //         'value':'hong gil-dong',
+        //     })
+        // })
+        $(function(){
+            $('input').val('이몽룡');
+
+            let linkUrl = $('a').attr('href');
+            linkUrl = linkUrl.replace('naver','google');
+            $('a').text('google').attr({
+                href:linkUrl,
+                target:'_self',
+            });
+            setInterval(function(){
+                let imgSrc = $('img').attr('src');
+                let nowDate = new Date();
+                let nowHour = nowDate.getHours();
+                let nowMinute = nowDate.getMinutes();
+                if(nowHour>=17 && nowMinute>=55){
+                    imgSrc = imgSrc.replace('fran','store');
+                }else{
+                    imgSrc = imgSrc.replace('store','fran');
+                }
+                $('img').attr('src',imgSrc);
+            },1000);
+        })
+    </script>
+</head>
+<body>
+    <input type="text" value="홍길동">
+    <a href="https://www.naver.com" target="_blank">네이버</a>
+    <img src="./images/img-fran.jpg" alt="이미지1">
+</body>
+</html>

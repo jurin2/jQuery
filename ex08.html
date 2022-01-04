@@ -13,7 +13,7 @@
     </div>
 
     <script src="./js/jquery-3.6.0.js"></script>
-    
+
     <script>
        $(function(){
             console.log($('#input01').is(':visible'));
@@ -23,11 +23,11 @@
                     height:'100px',
                 })
             }
-            if($('#input01').parent().is('body')){
-                $('#input01').css({
-                    color:'red',
-                })
-            }
+            console.log($('input').parent().is('body'));
+
+            let inBox = $('input').get(1);
+            inBox.style.color='green';
+           
         })
     </script>
 </body>

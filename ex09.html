@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개체조작메서드</title>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            console.log($('body').html());
+            console.log($('body').text());
+            $('#box02').html('<input tyoe="text" value="0">');
+            $('#box02').text('<input tyoe="text" value="0">');
+
+            $('#box').attr('id','box01');
+            $('#box02').attr('style','background-color:red');
+            $('.box').removeAttr('style');
+            $('.box').removeAttr('id');
+            $('.box').removeAttr('class');
+            $('div:first-of-type').attr('id','box01');
+            $('div:first-of-type').next().attr('id','box02');
+            $('div').attr('class','box');
+
+            $('#box01').addClass('active');
+            $('.box').removeClass('box');
+
+            $('div').click(function(){
+                $(this).toggleClass('active');
+            })
+            console.log($('h1').hasClass('main-tit'));
+            console.log($('#box01').hasClass('active'));
+
+        })
+    </script>
+</head>
+<body>
+    <h1 class="main-tit">개체 속성 메서드</h1>
+    <div id="box" class="box box01" style="color:red">box</div>
+    <div id="box02" class="box box02"></div>
+
+</body>
+</html>
