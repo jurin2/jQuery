@@ -8,15 +8,16 @@ function fnFlexItemWidth(){
     })
 }
 
+function moveBox(item){
+    $(item).css({
+        transform:'translateX(0)',
+        opacity:'1',
+    })
+
+}
 function loadEvent(leftBox,rightBox){    
-    $(leftBox).css({
-        transform:'translateX(0)',
-        opacity:'1',
-    })
-    $(rightBox).css({
-        transform:'translateX(0)',
-        opacity:'1',
-    })
+    moveBox(leftBox);
+    moveBox(rightBox);
 }
 
 function loadEventS(item1,item2,item3,item4,item5,item6,deTime){
