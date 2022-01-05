@@ -65,22 +65,7 @@
             opacity: 1;
         }
     </style>
-    <script src="./js/jquery-3.6.0.js"></script>
-    <script src="./js/my-function.js"></script>
-    <script>
-        $(function(){
-            let box = $('div[class*="box0"]');
-            let idx=0;
-            let loadEvent = setInterval(function(){
-                $(box[idx++]).addClass('active');
-                if(idx>box.length){
-                    clearInterval(loadEvent);
-                }
-            },300)     
-       
 
-        })
-    </script>
 </head>
 <body>
     <section class="wrap">
@@ -155,5 +140,27 @@
             </div>
         </footer>
     </section>
+
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script src="./js/my-function.js"></script>
+
+    <script>
+            // let box = $('div[class*="box0"]');
+            let flexBox = document.getElementsByClassName('flex-box');
+            let box = new Array();
+            let boxIdx = 0;
+            for(let idx=0; idx<flexBox.length; idx++){
+                box[boxIdx++] = flexBox[idx].children;
+            }
+            
+            
+           
+            // let loadEvent = setInterval(function(){
+            //     $(box[idx++]).addClass('active');
+            //     if(idx>box.length){
+            //         clearInterval(loadEvent);
+            //     }
+            // },300)     
+    </script>
 </body>
 </html>
