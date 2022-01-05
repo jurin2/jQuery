@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스모델 수치조작</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        button{
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            font-weight: 700;
+            font-size: 24px;
+        }
+        .box{
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin: 20px auto;
+            border: 20px solid black;
+            padding: 20px;
+            background-color: red;
+        }
+        h1{
+            position: absolute;
+            left: 100px;
+            right: 100px;
+            top: 100px;
+            bottom: 100px;
+            background-color: green;
+            text-align: center;
+            line-height: 340px;
+            transition: left 0.3s linear;
+        }
+    </style>
+
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            // 컨텐츠 박스의 너비 get/set(width(),width(값))
+            console.log('컨텐츠 박스의 너비 = ' + $('.box').width());
+            $('button').click(function(){
+                $('.box').width(1000);
+            })
+
+            // 컨텐츠 박스의 너비 get/set(height(),height(값))
+            console.log('컨텐츠 박스의 높이 = ' + $('.box').height());
+            $('button').click(function(){
+                $('.box').height(1000);
+            })    
+            
+            // 패딩 박스의 너비 get/set(innerWidth(),innerWidth(값))
+            console.log('패딩 박스의 너비 = ' + $('.box').innerWidth());
+            $('button').click(function(){
+                $('.box').innerWidth(1400);
+            })
+
+            // 패딩 박스의 높이 get/set(innerHeight(),innerHeight(값))
+            console.log('패딩 박스의 높이 = ' + $('.box').innerHeight());
+            $('button').click(function(){
+                $('.box').innerHeight(1400);
+            })
+
+            // 보더 박스의 너비 get/set(outerWidth(),outerWidth(값))
+            console.log('보더 박스의 너비 = ' + $('.box').outerWidth());
+            $('button').click(function(){
+                $('.box').outerWidth(500);
+            })
+
+            // 보더 박스의 높이 get/set(outerHeight(),outerHeight(값))
+            console.log('보더 박스의 높이 = ' + $('.box').outerHeight());
+            $('button').click(function(){
+                $('.box').outerHeight(500);
+            })
+            
+            // 포지션 좌표 get(position().left/top)
+            console.log($('h1').position().left);
+            console.log($('h1').position().top);
+
+
+            $('input').click(function(){
+                let boxPos = $('h1').position();
+                console.log(boxPos.left);
+                $('h1').css({
+                    left:boxPos.left+100,
+                    // right:boxPos.left-100,
+                })
+                // $('h1').css({
+                //     left:'200px',
+                //     right:'0'
+                // });
+            })
+        })
+    </script>
+
+</head>
+<body>
+    <button type="button">클릭</button>
+    <input type="button" value="클릭2">
+    <div class="box">
+        <h1>박스</h1>
+    </div>
+</body>
+</html>

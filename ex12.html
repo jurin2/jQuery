@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스의 위치</title>
+    <style>
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    button,input{
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 10;
+        width: 100px;
+        height: 30px;
+    }
+    input{
+        top: 60%;
+    }
+    .par-box{
+        position: relative;
+        z-index: 1;
+        width: 500px;
+        height: 3000px;
+        margin: 100px auto;
+        border: 20px solid black;
+        padding: 20px;
+        background-color: red;
+        background-clip: content-box;
+    }
+    .child-box{
+        position: absolute;
+        left: 100px;
+        right: 100px;
+        top: 100px;
+        height: 300px;
+        background-color: blue;
+    }
+    </style>
+
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('button').click(function(){
+                let childBox = $('.child-box');
+                childBox.css({
+                    // 포지션 위치 조회 position().left/top
+                    left:childBox.position().left+100,
+                })
+            })
+            
+            // 문서로부터 위치 조회 (offset().left/top)
+            console.log('문서로부터 왼쪽으로 = ' + $('.par-box').offset().left);
+            console.log('문서로부터 위쪽으로 = ' + $('.par-box').offset().top);
+            $('.par-box').offset({
+                left:100,
+                top:0,
+            })
+
+            // 윈도우 스크롤 위치(scrollTop(),scrollLeft())
+            scrTop();
+            $(window).scroll(function(){
+                scrTop();
+            })
+            // $(window).scroll(scrTop);
+            function scrTop(){
+                console.log($(window).scrollTop());
+            }
+            
+            $('input').click(function(){
+                let winTop = $(window).scrollTop();
+                let newWindTop = windTop + 100;
+                $(window).scrollTop(newWindTop);
+                // $(window).scrollTop($(window.scrollTop() +100);)
+            })
+        })
+    </script>
+</head>
+<body>
+    <button>click</button>
+    <input type="button" value="500px 스크롤">
+    <div class="par-box">
+        <div class="child-box"></div>
+    </div>
+</body>
+</html>

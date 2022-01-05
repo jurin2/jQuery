@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤 이벤트</title>
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0;}
+        .wrap{
+            width:100%;
+            overflow:hidden;
+        }
+        h1{
+            font-size:100px;
+            text-align: center;
+        }
+        h2{
+            text-align: center;
+        }
+        .sec{
+            margin-bottom:50px;
+            background-color:rgba(0,0,0,0.1);
+        }
+        .sec:last-of-type{
+            margin-bottom:0;
+        }
+        .container{
+            width:1200px;
+            margin:0 auto;
+            padding:12px;
+            background-color: rgba(0,0,0,0.1);
+        }
+        .flex-box{
+            display:flex;
+            flex-flow:row wrap;
+            justify-content: space-between;
+            overflow:hidden;
+        }
+        .flex-box>div{
+            height:200px; 
+            margin-bottom:12px;           
+            background-color:rgba(0,0,0,0.1);
+            opacity:0;
+
+            font-weight:900;
+            font-size:50px;
+            text-align:center;
+            line-height:200px;
+            transition:0.5s;
+        }
+        .flex-box>.box05,.flex-box>.box06{
+            margin-bottom:0;
+        }
+        .flex-box>div:nth-child(2n+1){
+            transform:translateX(-100%);
+        }
+        .flex-box>div:nth-child(2n){
+            transform:translateX(100%);
+        }
+    </style>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script src="./js/my-function.js"></script>
+    <script>
+        $(function(){
+            
+            let sec01Box =  $('.sec01 div[class*="box0"]');
+            let sec02Box =  $('.sec02 div[class*="box0"]');
+            let sec03Box =  $('.sec03 div[class*="box0"]');
+            let sec04Box =  $('.sec04 div[class*="box0"]');
+            let sec05Box =  $('.sec05 div[class*="box0"]');
+            
+            fnFlexItemWidth();
+            loadEventS(sec01Box[0],sec01Box[1],sec01Box[2],sec01Box[3],sec01Box[4],sec01Box[5],1000);
+           
+           
+ 
+            let winHeight = $(window).height();
+            let sec01OffsetTop = $('.sec01').offset().top;
+            let sec02OffsetTop = $('.sec02').offset().top;
+            let sec03OffsetTop = $('.sec03').offset().top;
+            let sec04OffsetTop = $('.sec04').offset().top;
+            let sec05OffsetTop = $('.sec05').offset().top;
+            let windowScrollTop;
+
+            $(window).scroll(function(){
+                windowScrollTop = $(window).scrollTop();
+                
+                if(windowScrollTop > sec02OffsetTop - winHeight * 0.6){
+                    loadEventS(sec02Box[0],sec02Box[1],sec02Box[2],sec02Box[3],sec02Box[4],sec02Box[5],1000);
+                }
+                if(windowScrollTop > sec03OffsetTop - winHeight * 0.6){
+                    loadEventS(sec03Box[0],sec03Box[1],sec03Box[2],sec03Box[3],sec03Box[4],sec03Box[5],1000);
+                }
+                if(windowScrollTop > sec04OffsetTop - winHeight * 0.6){
+                    loadEventS(sec04Box[0],sec04Box[1],sec04Box[2],sec04Box[3],sec04Box[4],sec04Box[5],1000);
+                }
+                if(windowScrollTop > sec05OffsetTop - winHeight * 0.6){
+                    loadEventS(sec05Box[0],sec05Box[1],sec05Box[2],sec05Box[3],sec05Box[4],sec05Box[5],1000);
+                }
+
+            })
+            
+
+        })
+    </script>
+</head>
+<body>
+    <section class="wrap">
+        <header class="header">
+            <div class="container">
+                <h1>윈도우 스크롤</h1>
+            </div>            
+        </header>
+        <section class="sec sec01">
+            <div class="container">
+                <div class="flex-box">
+                    <div class="box01">sec1-1</div>
+                    <div class="box02">sec1-2</div>
+                    <div class="box03">sec1-3</div>
+                    <div class="box04">sec1-4</div>
+                    <div class="box05">sec1-5</div>
+                    <div class="box06">sec1-6</div>
+                </div>
+            </div>
+        </section>
+        <section class="sec sec02">
+            <div class="container">
+                <div class="flex-box">
+                    <div class="box01">sec2-1</div>
+                    <div class="box02">sec2-2</div>
+                    <div class="box03">sec2-3</div>
+                    <div class="box04">sec2-4</div>
+                    <div class="box05">sec2-5</div>
+                    <div class="box06">sec2-6</div>
+                </div>
+            </div>
+        </section>
+        <section class="sec sec03">
+            <div class="container">
+                <div class="flex-box">
+                    <div class="box01">sec3-1</div>
+                    <div class="box02">sec3-2</div>
+                    <div class="box03">sec3-3</div>
+                    <div class="box04">sec3-4</div>
+                    <div class="box05">sec3-5</div>
+                    <div class="box06">sec3-6</div>
+                </div>
+            </div>
+        </section>
+        <section class="sec sec04">
+            <div class="container">
+                <div class="flex-box">
+                    <div class="box01">sec4-1</div>
+                    <div class="box02">sec4-2</div>
+                    <div class="box03">sec4-3</div>
+                    <div class="box04">sec4-4</div>
+                    <div class="box05">sec4-5</div>
+                    <div class="box06">sec4-6</div>
+                </div>
+            </div>
+        </section>
+        <section class="sec sec05">
+            <div class="container">
+                <div class="flex-box">
+                    <div class="box01">sec5-1</div>
+                    <div class="box02">sec5-2</div>
+                    <div class="box03">sec5-3</div>
+                    <div class="box04">sec5-4</div>
+                    <div class="box05">sec5-5</div>
+                    <div class="box06">sec5-6</div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="container">
+                <h2>footer</h2>
+            </div>
+        </footer>
+    </section>
+</body>
+</html>
