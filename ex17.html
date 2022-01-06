@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ready, 마우스 이벤트1</title>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        // ready() 
+        $(function(){
+            jQuery(document).ready(function(){
+                let imgWidth = $('img').css('width');
+                console.log(imgWidth);
+            })
+        })
+
+        // load()
+        $(window).on('load',function(){
+            console.log($('img').css('width'));
+        })
+
+        
+        $(function(){
+            // 클릭이벤트
+            // $('img').click(function(){
+            //     alert('이미지가 변경될겁니다.');
+            //     $('img').attr({
+            //         src : './images/img-store.jpg',
+            //         alt : '이미지2',
+            //     });
+            // })
+
+            // 더블클릭이벤트
+            // $('img').dblclick(function(){
+            //     alert('이미지가 삭제됩니다.');
+            //     $('img').remove();
+            // })
+
+            // 마우스다운 - 마우스 누르고 있는동안
+            // $('img').mousedown(function(){
+            //     $('img').attr({
+            //         src : './images/img-store.jpg',
+            //         alt : '이미지2',
+            //     });
+            // })
+
+            // 마우스업 - 마우스를 놓은 동안
+            // $('img').mouseup(function(){
+            //     $('img').attr({
+            //         src : './images/img-fran.jpg',
+            //         alt : '이미지',
+            //     });
+            // })
+
+            // 마우스오버
+            $('img').mouseover(function(){
+                $('img').attr({
+                    src : './images/img-store.jpg',
+                    alt : '이미지2',
+                });
+            })
+
+            // 마우스아웃
+            $('img').mouseout(function(){
+                $('img').attr({
+                    src : './images/img-fran.jpg',
+                    alt : '이미지',
+                });
+            })
+
+        })
+        
+    </script>
+</head>
+<body>
+    <img src="./images/img-fran.jpg" alt="이미지1">
+</body>
+</html>

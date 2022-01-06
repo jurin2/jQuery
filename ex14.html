@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소 삭제 / 복제 / 삽입 / 변경</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            border: 1px solid #000;
+        }
+
+    </style>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            // 요소삭제(선택요소.remove(),선택요소.empty(),선택요소.unwrap())
+            // box3 요소 삭제
+            $('.box03').remove();
+            // box2 자식요소 삭제
+            $('.box02').empty();
+            // #last의 부모요소만(box1) 삭제
+            $('#last').unwrap();
+
+            $('.box02').after('<div/>');
+            $('body').prepend('<div/>');
+            $('#last').removeAttr('id');
+
+            // 요소의 복제(선택요소.clone())
+            let cloneObg = $('p').clone();
+            console.log(cloneObg);
+            $('p').remove();
+            $('div').first().prepend(cloneObg);
+            
+            cloneObg = $('div').first().children().clone();
+            $('div.box02').prepend(cloneObg);
+
+            cloneObg = $('div.box02').first().children().clone();
+            $('div').last().prepend(cloneObg);
+
+            $('div').removeClass().addClass('box');
+
+            // 부모 삽입
+            // 박스들의 통합부모
+            $('.box').wrapAll('<section/>');
+            // 박스 각각의 부모
+            $('.box').wrap('<h2/>');
+            // 자식요소의 부모(section요소의 자식들의 부모)
+            $('section').wrapInner('<article/>');
+
+            // 변경(선택요소.replaceWidth())
+            let secObj = $('section').children().clone();
+            $('section').replaceWith('<header/>');
+            $('header').prepend(secObj);
+
+        })
+    </script>
+</head>
+<body>
+    <div class="box01">
+        <p>1-1</p>
+        <p>1-2</p>
+        <p id="last">1-3</p>
+    </div>
+    <div class="box02">
+        <p>2-1</p>
+        <p>2-2</p>
+        <p>2-3</p>
+    </div>
+    <div class="box03">
+        <p>3-1</p>
+        <p>3-2</p>
+        <p>3-3</p>
+    </div>
+</body>
+</html>

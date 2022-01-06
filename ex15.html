@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .btn,.box{
+            display: inline-block;
+            width: 150px;
+            height: 80px;
+            margin: 20px;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 80px;
+        }
+    </style>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            let tri01 = document.getElementById('btn01');
+            let tri02 = document.getElementById('btn02');
+            let tri03 = document.getElementById('btn03');
+
+            tri02.onclick = function(){
+                $('#box02').css({
+                    fontSize:'24px',
+                })
+            }
+            function btn03Event(){
+                $('#box03').css({
+                    fontSize:'24px',
+                })
+            }
+            tri03.addEventListener('click',btn03Event);
+            $('#btn04').click(function(){
+                $('#box04').css({
+                    fontSize:'24px',
+                })
+            })
+
+            $('#btn05').on({
+                'click':function(){
+                    $('#box05').css({
+                        fontSize:'24px',
+                    })
+                },
+            })
+            
+            tri01.removeAttribute('onclick');
+            tri02.onclick=null;
+            tri03.removeEventListener('click',btn03Event);
+            $('#btn04').off('click');
+            $('#btn05').off('click');
+      
+        })
+    </script>
+</head>
+<body>
+    <input type="button" value="클릭1" id="btn01" class="btn" onclick="
+        $('#box01').css({
+            fontSize:'24px',
+        })">
+    <input type="button" value="클릭2" id="btn02" class="btn">
+    <input type="button" value="클릭3" id="btn03" class="btn">
+    <input type="button" value="클릭4" id="btn04" class="btn">
+    <input type="button" value="클릭5" id="btn05" class="btn">
+
+    <br>
+
+    <div class="box" id="box01">박스1</div>
+    <div class="box" id="box02">박스2</div>
+    <div class="box" id="box03">박스3</div>
+    <div class="box" id="box04">박스4</div>
+    <div class="box" id="box05">박스5</div>
+</body>
+</html>

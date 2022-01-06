@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            let key01 = '';
+            let key02 = '';
+            let key03 = '';
+            let key04 = '';
+            $('input').on({
+                'keydown':function(event){
+                    key04 = key03;
+                    key03 = key02;
+                    key02 = key01;
+                    key01 = event.keyCode;
+
+                    if(key03 == 17 && ket02 == 16 && key03 == 88){
+                        $(this).val('');
+                    }
+                },
+                'change focusout':function(){
+                    $(this).css({
+                        color:'red',
+                    })
+                },
+                'focusin':function(){
+                    $(this).css({
+                        color:'green',
+                    })
+                }
+
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="text">
+</body>
+</html>

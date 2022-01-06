@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스 이벤트2</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .ul{
+            width: 50%;
+            margin: 50px auto;
+            border: 2px solid #000;
+            padding: 20px;
+            background-color: rgba(0,0,0,0.2);         
+            list-style: none;  
+            
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+        }
+        li{
+            flex: 1;
+            margin-right: 20px;
+
+            text-align: center;
+        }
+    </style>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            // CSS Hover
+            $('#ul01').mouseover(function(){
+                $(this).css({
+                    fontWeight:'900', 
+                })
+            })
+            // CSS Not Hover 비슷
+            $('#ul01').mouseout(function(){
+                $(this).css({
+                    fontWeight:'100', 
+                })
+            })
+
+            // CSS hover 비슷
+            $('#ul01').mouseover(function(){
+                $(this).children().css({
+                    backgroundColor:'rgba(0,0,0,0.2)', 
+                })
+            })
+            $('#ul01').mouseout(function(){
+                $(this).children().css({
+                    border:'2px solid #f00',
+                })
+            })
+
+            // CSS Not Hover
+            $('#ul02').mouseenter(function(){
+                $(this).children().css({
+                    backgroundColor:'rgba(0,0,0,0.2)', 
+                })
+            })
+            $('#ul02').mouseleave(function(){
+                $(this).children().css({
+                    border:'2px solid #f00',
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <ul class="ul" id="ul01">
+        <li>목록1-1</li>
+        <li>목록1-2</li>
+        <li>목록1-3</li>
+        <li>목록1-4</li>
+    </ul>
+    <ul class="ul" id="ul02">
+        <li>목록2-1</li>
+        <li>목록2-2</li>
+        <li>목록2-3</li>
+        <li>목록2-4</li>
+    </ul>
+</body>
+</html>
