@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서편집기</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            text-align: center;
+        }
+        .txt-box{
+            width: 900px;
+            margin: 50px auto;
+        }
+        textarea{
+            display: block;
+            width: 100%;
+            height: 300px;
+            padding: 20px;
+            font-size: 20px;
+        }
+        button{
+            width: 150px;
+            height: 30px;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+    </style>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            let fSize = 20;
+            $('button').on({
+                'click':function(){
+                    let clickBtn = $(this).attr('class');
+                    if(clickBtn == 'plus'){
+                        $('textarea').css({
+                            fontSize : ++fSize + 'px',
+                        })
+                    }
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <h1>문서편집기</h1>
+        <div class="txt-box">
+            <button type="button" class="plus">+</button>
+            <button type="button" class="minus">-</button>
+            <button type="button" class="defult">100%</button>
+            <button type="button" class="font1">노토 산스 KR</button>
+            <button type="button" class="font2">로보토</button>
+            <textarea></textarea>
+        </div>
+    </div>
+</body>
+</html>
