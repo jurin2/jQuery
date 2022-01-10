@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션</title>
+    <style>
+        input{
+            margin: 10px;
+        }
+        .move-box{
+            width: 300px;
+            height: 150px;
+            margin: 10px;
+            border-radius: 20px;
+            background-color: #f00;
+            transition: 0.3s;
+        }
+        .move-box2{
+            width: 300px;
+            height: 150px;
+            margin: 10px;
+            border-radius: 20px;
+            background-color: #00f;
+        }
+        .move-box.active{
+            margin-left: 1010px;
+        }
+    </style>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('#btn01').click(function(){
+                $('.move-box').addClass('active');
+            })
+            $('#btn02').click(function(){
+                $('.move-box').removeClass('active');
+            })
+            $('#btn03').click(function(){
+                $('.move-box').css('margin-left','1010px');
+            })
+            $('#btn04').click(function(){
+                $('.move-box').css('margin-left','10px');
+            })
+            $('#btn05').click(function(){
+                $('.move-box2').css('margin-left','1010px');
+            })
+            $('#btn06').click(function(){
+                $('.move-box2').css('margin-left','10px');
+            })
+
+            // animation => animate({속성},시간,가속도,콜백)
+            $('#btn07').click(function(){
+                $('.move-box2').animate({'margin-left':'1010px','height':'300px'},300);
+            })
+            $('#btn08').click(function(){
+                $('.move-box2').animate({'margin-left':'10px','height':'150px'},300);
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <input id="btn01" type="button" value="오른쪽으로 1000px 이동">
+    <input id="btn02" type="button" value="왼쪽으로 1000px 이동">
+    <div class="move-box"></div>
+    <input id="btn03" type="button" value="오른쪽으로 1000px 이동">
+    <input id="btn04" type="button" value="왼쪽으로 1000px 이동">
+
+    <br><br><br><br><br>
+    <input id="btn05" type="button" value="오른쪽으로 1000px 이동">
+    <input id="btn06" type="button" value="왼쪽으로 1000px 이동">
+    <div class="move-box2"></div>
+    <input id="btn07" type="button" value="오른쪽으로 1000px 이동">
+    <input id="btn08" type="button" value="왼쪽으로 1000px 이동">
+</body>
+</html>
