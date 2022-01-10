@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모달창</title>
+    <style>
+        body{
+            background-color: #f00;
+        }
+        .modal{
+            width: 600px;
+            height: 400px;
+            margin: 100px auto;
+            border: 1px solid #000;
+            padding: 20px;
+            border-radius: 20px;
+            background-color: #fff;
+            position: relative;
+        }
+        .btn-close{
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            width: 40px;
+            height: 40px;
+        }
+        .btn-close::before,.btn-close::after{
+            content: '';
+            display: block;
+            height: 4px;
+            background-color: #000;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            transform: rotate(45deg);
+        }
+        .btn-close::after{
+            transform: rotate(-45deg);
+        }
+    </style>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <!-- <script>
+        $(function(){
+            $('.btn-close').on({
+                'click':function(){
+                    $('.modal').hide(0);
+                }
+            })
+        })
+    </script> -->
+    <script>
+        let modalWindow = document.querySelector('.modal');
+        let btnCloseWindow = document.querySelector('.btn-close');
+        console.log(modalWindow);
+        console.log(btnCloseWindow);
+        btnCloseWindow.addEventListener('click',function(){
+            modalWindow.style.display = 'none';
+        })
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="modal">
+            <div class="btn-close"></div>
+            <h2>모달창</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil error natus mollitia quod, non consequatur tempora dolore deleniti aliquid enim et omnis, doloribus nemo eligendi aut laborum earum fugiat! A.
+            Quisquam vel libero necessitatibus hic, voluptas sapiente minima odit repellat eveniet ducimus laborum sed distinctio quae autem dignissimos dolores culpa omnis labore consequuntur ab quis. Soluta tempora nulla ipsum cumque.
+            Omnis beatae, quos corrupti quisquam, odit quae corporis mollitia repellat modi, iure nemo magni ad minus sed ipsum eaque vel dolorem exercitationem ullam fugit molestias cum! Necessitatibus quas nulla voluptate?
+            Recusandae placeat similique odio cupiditate, hic, nesciunt tempora dolorum soluta fuga esse, laboriosam minima. Quam consequuntur numquam in ad doloremque consectetur incidunt accusamus vitae, a repellat aliquid! Numquam, sit eaque.
+            Totam explicabo quas quae eligendi dolores consequatur. Rerum nihil doloremque velit voluptatum mollitia repellat sit laudantium quam iste. Impedit nam, officiis repellat debitis consequuntur perspiciatis dolorem ullam facere sit cumque.</p>
+        </div>
+    </div>
+</body>
+</html>

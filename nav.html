@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네비게이션</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+        .wrap{
+            overflow: hidden;
+        }
+        .sec{
+            border: 5px solid #000;
+        }
+        .sec .inner{
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 100px;
+        }
+        .header .container{
+            width: 1200px;
+            margin: 0 auto;
+            padding: 12px;
+            background-color: rgba(0,0,0,0.2);
+        }
+        .header .inner{
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .first-nav{
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+        }
+        .first-nav>li{
+            width: 150px;
+            text-align: center;
+            position: relative;
+            background-color: rgba(0,0,0,0.2);
+        }
+        .second-nav{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 100%;
+            padding-top: 30px;
+            display: none;
+            /* height: 0; */
+            /* overflow: hidden; */
+            background-color: rgba(0,0,0,0.2);
+            /* transition: 0.3s; */
+        }
+        /* .second-nav.active{ */
+            /* display: block; */
+            /* height: 300px; */
+        /* } */
+    </style>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+       $(function(){
+            $('.first-nav>li').on({
+                'mouseenter':function(){
+                    // $('.second-nav').removeClass('active');
+                    // $(this).find('.second-nav').addClass('active');
+                    $('.second-nav').slideUp(300);
+                    $(this).find('.second-nav').slideDown(300);
+                },
+            })
+            $('.second-nav').on({
+                'mouseleave':function(){
+                    // $(this).removeClass('active');
+                    $(this).slideUp(300);
+                }
+            })
+       }) 
+    </script>
+
+</head>
+<body>
+    <div class="wrap">
+        <header class="header">
+            <div class="container">
+                <div class="inner">
+                   <h1>LOGO</h1>
+                   <nav class="nav">
+                       <ul class="first-nav">
+                           <li>
+                               <span>메뉴1</span>
+                               <ul class="second-nav">
+                                   <li>메뉴1-1</li>
+                                   <li>메뉴1-2</li>
+                                   <li>메뉴1-3</li>
+                                   <li>메뉴1-4</li>
+                               </ul>
+                            </li>
+                           <li>
+                               <span>메뉴2</span>
+                               <ul class="second-nav">
+                                   <li>메뉴2-1</li>
+                                   <li>메뉴2-2</li>
+                                   <li>메뉴2-3</li>
+                                   <li>메뉴2-4</li>
+                               </ul>
+                            </li>
+                           <li>
+                               <span>메뉴3</span>
+                               <ul class="second-nav">
+                                   <li>메뉴3-1</li>
+                                   <li>메뉴3-2</li>
+                                   <li>메뉴3-3</li>
+                                   <li>메뉴3-4</li>
+                               </ul>
+                            </li>
+                           <li>
+                               <span>메뉴4</span>
+                               <ul class="second-nav">
+                                   <li>메뉴4-1</li>
+                                   <li>메뉴4-2</li>
+                                   <li>메뉴4-3</li>
+                                   <li>메뉴4-4</li>
+                               </ul>
+                            </li>
+                       </ul>
+                   </nav>
+                </div>
+            </div>
+        </header>
+        <section class="sec slider">
+            <div class="container">
+                <div class="inner">
+                    Slider
+                </div>
+            </div>
+        </section>
+        <section class="sec main01">
+            <div class="container">
+                <div class="inner">
+                    Main01
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
