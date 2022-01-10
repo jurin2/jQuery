@@ -24,6 +24,13 @@
             border-radius: 20px;
             background-color: #00f;
         }
+        .move-box3{
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            border-radius: 5px;
+            background-color: #0f0;
+        }
         .move-box.active{
             margin-left: 1010px;
         }
@@ -58,6 +65,18 @@
                 $('.move-box2').animate({'margin-left':'10px','height':'150px'},300);
             })
 
+            $('#btn09').click(function(){
+                move($('.move-box3'),50);
+            })
+            $('#btn10').click(function(){
+                move($('.move-box3'),-50);
+            })
+
+            function move(target,moveVal){
+                target.animate({
+                    marginLeft:moveVal,
+                },300);
+            }
         })
     </script>
 </head>
@@ -74,5 +93,10 @@
     <div class="move-box2"></div>
     <input id="btn07" type="button" value="오른쪽으로 1000px 이동">
     <input id="btn08" type="button" value="왼쪽으로 1000px 이동">
+
+    <br><br><br><br><br>
+    <input id="btn09" type="button" value="오른쪽으로 50px 이동">
+    <input id="btn10" type="button" value="왼쪽으로 50px 이동">
+    <div class="move-box3"></div>
 </body>
 </html>
