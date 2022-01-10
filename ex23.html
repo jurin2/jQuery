@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>키보드 이벤트 객체</title>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('input').on({
+                'keydown':function(e){
+                    console.log('입력된 키의 코드는 : ' + e.keyCode);
+                    if(e.shiftKey == 16){
+                        console.log('shift키');
+                    }else if(e.ctrlKey == 17){
+                        console.log('ctrl키');
+                    }
+                    else if(e.altKey == 18){
+                        console.log('alt키');
+                    }
+                },
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="text" placeholder="아무키나 눌러주세요">
+</body>
+</html>

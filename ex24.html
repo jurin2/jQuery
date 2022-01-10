@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this, target, preventDefault()</title>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('li').on({
+                'click':function(e){
+                    // console.log($(this).text());
+                    console.log($(e.target).text());
+                    if($(e.target).text() == 'list01'){
+                        location.href='https://www.naver.com';
+                    }else if($(e.target).text() == 'list02'){
+                        location.href='https://www.google.com';
+                    }
+                },
+                'mouseup':function(e){
+                    console.log(e.button);
+                }
+            })
+            $('a').click(function(){
+                console.log($(this).text());
+                // return false;
+                e.preventDefault();
+            })
+        })
+    </script>
+</head>
+<body>
+    <ul>
+        <li>list01</li>
+        <li>list02</li>
+        <li>list03</li>
+        <li>list04</li>
+        <li>list05</li>
+        <li>list06</li>
+        <li>list07</li>
+        <li>list08</li>
+        <li>list09</li>
+        <li>list10</li>
+    </ul>
+    <a href="https://www.naver.com">네이버</a>
+    <a href="https://www.google.com">구글</a>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>콜백함수(callback function)</title>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <style>
+        .text{
+            width: 500px;
+            height: 300px;
+            border: 1px solid #000;
+            background-color: #f00;
+        }
+    </style>
+    <script>
+        $(function(){      
+            $('.text').on({
+                'click':function(){
+                    $(this).slideUp(tmp);
+                    
+                }
+            })
+            function tmp(){
+                $('.text').slideDown();
+            }
+
+        })
+    </script>
+</head>
+<body>
+    <div class="text"></div>
+</body>
+</html>
