@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스무스 스크롤</title>
+    <style>
+        a{
+            position: fixed;
+            left: 100px;
+            top: 100px;
+        }
+        a:nth-child(2){
+            left: 300px;
+        }
+        a:nth-child(3){
+            left: 500px;
+        }
+        .sec{
+            height: 1000px;
+        }
+        #sec01{
+            background-color: red;
+        }
+        #sec02{
+            background-color: green;
+        }
+        #sec03{
+            background-color: blue;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.2.0/jquery.smooth-scroll.min.js" integrity="sha512-0tWfLL+YANip9Uo2YUY4/SxvwDgPUuoSUcIXPFULXiXXgLKmiC/qCeDxnhl+mLobu6e/dSlyhGheCtzd9+RLCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(function(){
+            $('a').smoothScroll();
+        })
+    </script>
+
+</head>
+<body>
+    <a href="#sec01">sec01</a>
+    <a href="#sec02">sec02</a>
+    <a href="#sec03">sec03</a>
+    <div class="sec" id="sec01"></div>
+    <div class="sec" id="sec02"></div>
+    <div class="sec" id="sec03"></div>
+</body>
+</html>
