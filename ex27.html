@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>애니메이션</title>
+    <title>애니메이션1</title>
     <style>
         input{
             margin: 10px;
@@ -65,6 +65,7 @@
                 $('.move-box2').animate({'margin-left':'10px','height':'150px'},300);
             })
 
+
             $('#btn09').click(function(){
                 move($('.move-box3'),50);
             })
@@ -73,8 +74,13 @@
             })
 
             function move(target,moveVal){
+                let nowMarLeft = target.css('margin-left');
+                let newMarLeft = Number(nowMarLeft.slice(0,nowMarLeft.length-2));
+                console.log('현재 마진 :' + nowMarLeft);
+                console.log('변환 마진 :' + newMarLeft);
+
                 target.animate({
-                    marginLeft:moveVal,
+                    marginLeft:newMarLeft + moveVal,
                 },300);
             }
         })

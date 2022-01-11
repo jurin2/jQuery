@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션2</title>
+    <style>
+        .box{
+            width: 150px;
+            height: 80px;
+            margin: 20px;
+            text-align: center;
+            line-height: 80px;
+        }
+        .box01{
+            background-color: #f00;
+        }
+        .box02{
+            background-color: #0f0;
+        }
+        .box03{
+            background-color: #00f;
+        }
+        .box04{
+            background-color: #0ff;
+        }
+        .box05{
+            background-color: #f0f;
+        }
+    </style>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('.box01').animate({marginLeft:'320px'});
+            $('.box02').animate({marginLeft:'320px'},300);
+            $('button').click(function(){
+                $('.box03').animate({marginLeft:'320px'});
+                $('.box04').animate({marginLeft:'+=50px'},1000);
+                $('.box05').stop().animate({marginLeft:'+=50px'},1000);
+            })
+        })
+    </script>
+</head>
+<body>
+    <button>클릭</button>
+    <div class="box box01">박스1</div>
+    <div class="box box02">박스2</div>
+    <div class="box box03">박스3</div>
+    <div class="box box04">박스4</div>
+    <div class="box box05">박스5</div>
+</body>
+</html>
