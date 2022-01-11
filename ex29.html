@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션3</title>
+    <style>
+        .wrap{
+            width: 1200px;
+            margin: 0 auto;
+            border: 1px solid black;
+            padding: 19px;
+            text-align: center;
+        }
+        .par-box{
+            border: 1px solid red;
+            padding: 12px;
+            margin-top: 19px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .child-box{
+            flex: 1;
+            height: 380px;
+            margin-right: 12px;
+            border: 1px solid green;
+            position: relative;
+        }
+        .child-box:last-child{
+            margin-right: 0;
+        }
+        .move-box{
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: 10px;
+            background-color: blue;
+            color: white;
+        }
+    </style>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('#start').click(function(){
+                $('#move01,#move02,#move03').delay(300)
+                            .animate({left:'320px'},1000)
+                            .delay(300)
+                            .animate({top:'340px'},1000)
+                            .delay(300)
+                            .animate({left:'0px'},1000)
+                            .delay(300)
+                            .animate({top:'0px'},1000);
+            })
+            $('#stop').click(function(){
+                $('#move01').stop();
+                $('#move02').clearQueue();
+                $('#move03').finish();
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <button id="start">스타트</button>
+        <button id="stop">스톱</button>
+        <div class="par-box">
+            <div class="child-box">
+                <div class="move-box" id="move01">박스1</div>
+            </div>
+            <div class="child-box">
+                <div class="move-box" id="move02">박스2</div>
+            </div>
+            <div class="child-box">
+                <div class="move-box" id="move03">박스3</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
